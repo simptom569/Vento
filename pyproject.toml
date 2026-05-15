@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "vento"
+version = "0.1.0"
+package-mode = false
+description = "Vento is a secure messaging application designed with privacy and control at its core. It uses end-to-end encryption to ensure that only the sender and recipient can read messages, protecting conversations from third-party access. Vento supports private chats, group messaging, and secure file sharing, all while minimizing data collection. With a clean, minimalist interface and a focus on speed and reliability, Vento provides a safe and seamless communication experience for users who value confidentiality."
+authors = ["simptom569 <pikalovegor0@gmail.com>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = ">=3.14"
+fastapi = {extras = ["standard"], version = ">=0.136.1,<0.137.0"}
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.49"}
+alembic = "^1.18.4"
+asyncpg = "^0.31.0"
+pydantic-settings = "^2.14.0"
+dishka = "^1.10.1"
+uvicorn = "^0.46.0"
+python-jose = {extras = ["cryptography"], version = "^3.5.0"}
+bcrypt = "^5.0.0"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=9.0.3,<10.0.0"
+pytest-asyncio = "^1.3.0"
+httpx = "^0.28.1"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

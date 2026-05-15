@@ -378,6 +378,7 @@ project_root/
 > Для поста в канале: type = 'post', FEED_POSTS ссылается на этот MESSAGE
 
 #### ATTACHMENTS — Many-to-One → MESSAGES
+| Поле | Тип | Описание |
 |------|-----|----------|
 | id | UUID PK | — |
 | message_id | UUID FK NOT NULL | → MESSAGES |

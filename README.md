@@ -582,36 +582,6 @@ tests/e2e/conftest.py     # TestProvider, container, client (только для
 
 ---
 
-## Что делать дальше
-
-### Следующий приоритет — Auth завершить
-
-```
-1. core/security.py                  — JWT RS256 (access 15min + refresh 30d)
-2. domain/ports/repositories/
-   credentials_repo.py               — AbstractCredentialsRepository (ABC)
-3. infrastructure/db/models/user.py  — UserCredentialsModel
-4. infrastructure/db/repositories/
-   credentials_repo.py               — реализация
-5. login use case                    — проверка пароля (bcrypt), выдача токенов
-6. refresh token use case            — ротация refresh токена
-7. get_current_user Depends          — для защищённых роутеров
-8. GET /users/me                     — первый защищённый эндпоинт
-9. Миграция                          — user_credentials + auth_sessions изменения
-```
-
-### Потом — Чаты и сообщения
-
-```
-10. ORM модели chat.py, message.py, call.py
-11. Миграции для новых таблиц
-12. Репозитории чатов и сообщений
-13. Use cases: create_chat, send_message
-14. WebSocket handler                — real-time через Redis pub/sub
-```
-
----
-
 ## Ключевые архитектурные решения
 
 ### Почему Clean Architecture
